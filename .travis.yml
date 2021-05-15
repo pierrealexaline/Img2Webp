@@ -8,14 +8,14 @@ before_install:
     - if [ -d "./vendor" ]; then echo "Forbidden external libs folder found !"; exit 2; fi
     - if [ $(find ./ -name .DS_Store) ]; then echo "Forbidden MacOS boring file found ! Please, ignore them globaly..."; exit 2; fi
 install:
-    - composer install
-    - yarn --ignore-engines install
+    #- composer install
+    #- yarn --ignore-engines install
 script:
     - ./bin/phpcs
     - ./bin/phpstan analyse src --level max
     - ./bin/phpmd src text phpmd.xml
-    - ./bin/eslint assets/js
-    - ./bin/sass-lint -c sass-linter.yml -v
+    #- ./bin/eslint assets/js
+    #- ./bin/sass-lint -c sass-linter.yml -v
 notifications:
     email:
         - TRAINER@lookit.fr.fr
